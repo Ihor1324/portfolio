@@ -12,7 +12,7 @@ window.addEventListener("scroll", () => {
 })
 /* ====================================== theme colors ===================================== */
 const alternateStyles = document.querySelectorAll(".alternate-style");
-function setActiveStyle(color)
+function setActiveStyle(color) 
 {
     alternateStyles.forEach((style) => {
         if(color  === style.getAttribute("title"))

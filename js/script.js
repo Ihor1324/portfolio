@@ -71,7 +71,7 @@ const nav =document.querySelector(".nav"),
         const sectionIndex = this.getAttribute("date-section-index");
         //console.log(sectionIndex);
         showSection(this);
-        updateNav(this);
+        updateNav(this); 
         removeBackSection();
         addBackSection(sectionIndex);
     })
