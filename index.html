@@ -110,7 +110,7 @@
                                         <div class="skill-item padd-15">
                                             <h5>HTML</h5>
                                             <div class="progress">
-                                                <div class="progress-in" style="width: 76%;"></div>
+                                                <div class="progress-in" style="width: 46%;"></div>
                                                 <div class="skill-percent">46%</div>
                                             </div>
                                         </div>
@@ -124,21 +124,21 @@
                                         <div class="skill-item padd-15">
                                             <h5>Java Script</h5>
                                             <div class="progress">
-                                                <div class="progress-in" style="width: 56%;"></div>
+                                                <div class="progress-in" style="width: 13%;"></div>
                                                 <div class="skill-percent">13%</div>
                                             </div>
                                         </div>
                                         <div class="skill-item padd-15">
                                             <h5>Python</h5>
                                             <div class="progress">
-                                                <div class="progress-in" style="width: 70%;"></div>
+                                                <div class="progress-in" style="width: 21%;"></div>
                                                 <div class="skill-percent">21%</div>
                                             </div>
                                         </div>
                                         <div class="skill-item padd-15">
                                             <h5>C</h5>
                                             <div class="progress">
-                                                <div class="progress-in" style="width: 70%;"></div>
+                                                <div class="progress-in" style="width: 0%;"></div>
                                                 <div class="skill-percent">0%</div>
                                             </div>
                                         </div>
@@ -414,7 +414,7 @@
                     <h3 class="contact-title padd-15">SEND ME AN EMAIL</h3>
                     <h4 class="contact-sub-title padd-15">I'M VERY RESPOSIVE TO MASSAGES</h4>
                     <!-- ===== Contact Form ===== -->
-                    <form id="contact-forms">
+                    <form id="contact-form">
                         <div class="row">
                             <div class="contact-form padd-15">
                                 <div class="row">
@@ -478,34 +478,26 @@
      </div>
      <!--===== Style Switcher End ===== -->
     <!-- ===== JS Files ===== -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.1.0/typed.umd.js" integrity="sha512-+2pW8xXU/rNr7VS+H62aqapfRpqFwnSQh9ap6THjsm41AxgA0MhFRtfrABS+Lx2KHJn82UOrnBKhjZOXpom2LQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- EmailJS SDK має бути першим -->
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+    (function(){
+        emailjs.init({
+            publicKey: "uhUjw6wiHwXvDSfkH",
+        });
+    }   )();
+    </script>
+
+    <!-- Далі ініціалізація EmailJS (email.js) -->
+    <script src="js/email.js"></script>
+
+    <!-- Далі всі інші скрипти -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.1.0/typed.umd.js"></script>
     <script src="js/script.js"></script>
     <script src="js/style-switcher.js"></script>
-    <!-- EmailJS SDK -->
-    <script src="https://cdn.emailjs.com/sdk/3.2/email.min.js"></script>
-    <script>
-    (function()
-    {
-        emailjs.init('uhUjw6wiHwXvDSfkH'); // заміни YOUR_USER_ID на свій User ID (починається з user_)
-    })();
-    </script>
-    <script>
-    document.getElementById('contact-forms')
-    .addEventListener('submit', function(event) {
-        event.preventDefault();
 
-        const serviceID  = 'service_tqssggm';     // твій Service ID з EmailJS
-        const templateID = 'template_wgdaqce';     // твій Template ID з EmailJS
-
-        emailjs.sendForm(serviceID, templateID, this)
-        .then(() => {
-            document.getElementById('form-status').innerText = 'The letter was sent successfully!';
-            this.reset();
-        }, (err) => {
-            console.error(err);
-            document.getElementById('form-status').innerText = 'There was an error sending. Please try again later.';
-        });
-    });
-    </script>
+    
 </body>
 </html>
